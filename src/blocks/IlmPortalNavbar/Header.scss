@@ -1,0 +1,235 @@
+$main: #2181fa;
+$border-light: #cccccc;
+$primary: #4286f5;
+$white: #fff;
+$bg-light: #fbfbfb;
+$lightgray: #f0f0f0;
+$black: #202223;
+$box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+$border: #8c9196;
+$border-light: #cccccc;
+$card-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+.i-header {
+    width: 100%;
+    min-height: 60px;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $border;
+  
+    .border-right {
+      border-right: 1px solid $border;
+    }
+  
+    .i-brand {
+      .i-logo {
+        height: 36px;
+      }
+    }
+  
+    .i-actions {
+      display: flex;
+      align-items: center;
+  
+      .nav-item:first-child {
+        padding-right: 20px;
+      }
+  
+      .nav-item {
+        margin-left: 20px;
+      }
+  
+      .dropdown-toggle {
+        padding: 0px;
+        border-radius: 100px;
+        border: none;
+        height: 40px;
+      }
+  
+      .dropdown-toggle::after {
+        display: none;
+      }
+  
+      .dropdown-menu {
+        top: 7px !important;
+        padding: 24px;
+        width: 195px;
+        border-radius: 12px;
+        border: 1px solid $border;
+        background: #FFF;
+        box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.08), 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
+  
+        .user-profile {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          border-bottom: 1px solid $border;
+          margin-bottom: 10px;
+  
+          .profile {
+            border-radius: 100px;
+            border: 1px solid var(--fade-black-10, rgba(27, 31, 35, 0.10));
+            width: 110px;
+            height: 110px;
+            margin-bottom: 15px;
+            position: relative;
+  
+            img {
+              height: 100%;
+              border-radius: 100px;
+              width: 100%;
+            }
+  
+            .status {
+              position: absolute;
+              width: 20px;
+              height: 20px;
+              flex-shrink: 0;
+              border-radius: 100px;
+              background: $border;
+              border: 1px solid white;
+              bottom: 5px;
+              right: 5px;
+              z-index: 99999999;
+            }
+  
+            .status.active {
+              background: #64FF3D;
+            }
+          }
+  
+          h3 {
+            margin-bottom: 15px;
+  
+            color: #8C96A0;
+            font-family: Poppins;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 150%;
+            text-transform: uppercase;
+          }
+  
+          h6 {
+            color: #2181FA;
+            font-family: Poppins;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 18px;
+            margin-bottom: 15px;
+          }
+        }
+  
+        .options {
+          .option {
+            padding: 10px 0px;
+            display: flex;
+            cursor: pointer;
+  
+            svg {
+              margin-right: 8px;
+            }
+  
+            span {
+              color: #8C96A0;
+              font-family: Poppins;
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: 18px;
+              /* 150% */
+            }
+          }
+  
+          .option:hover {
+            span {
+              color: $main;
+            }
+  
+            svg path {
+              fill: $main !important;
+            }
+          }
+  
+          .option:last-child {
+            padding-bottom: 0px;
+            border-top: 1px solid $border;
+          }
+        }
+      }
+  
+      .i-menu {
+        padding: 0px;
+  
+        .menu-box {
+          padding: 25px 25px 15px;
+  
+        }
+  
+        .admin-row:hover {
+          span {
+            color: $main;
+          }
+  
+          svg path {
+            fill: $main;
+          }
+        }
+  
+        .admin-row {
+          cursor: pointer;
+          border-top: 1px solid $border;
+          display: flex;
+          padding: 20px 50px;
+  
+  
+          span {
+            margin-left: 8px;
+            color: #8C96A0;
+            font-family: Poppins;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 18px;
+            /* 150% */
+          }
+        }
+  
+        .portal.active,
+        .portal:hover {
+          background: #EDF4FF;
+        }
+  
+        .portal {
+          cursor: pointer;
+          width: 100%;
+          height: 44px;
+          padding: 10px 20px;
+          border-radius: 6px;
+          display: flex;
+          align-items: center;
+  
+          span {
+            margin-left: 8px;
+            color: #8C96A0;
+            font-family: Poppins;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 18px;
+            /* 150% */
+          }
+        }
+      }
+  
+      .i-user {
+        height: 40px;
+        width: 40px;
+        border-radius: 100px;
+      }
+    }
+  }
