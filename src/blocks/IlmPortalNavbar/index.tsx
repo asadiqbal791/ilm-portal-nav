@@ -1,7 +1,7 @@
 import React, { MouseEventHandler, useState } from "react";
 import { Dropdown, Modal, Form } from "react-bootstrap";
 import { MdOutlineMenu, MdOutlineMenuOpen } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import {
     CDBSidebar,
     CDBSidebarContent,
@@ -46,6 +46,7 @@ export const IlmPortalNavbar = ({
     const handleShoworg = () => setShoworg(true);
     const handleCloseorg = () => setShoworg(false);
     const space = localStorage.getItem('space') ? JSON.parse(localStorage.getItem('space')) : { name: 'ilmiya', displayName: "ilmiya" };
+    const { pathname } = useLocation();
     return (
         <div className='i-header'>
             <div className='i-brand'>
@@ -302,6 +303,19 @@ export const IlmPortalNavbar = ({
                 <CDBSidebar toggled={sidebarState} className="side-bar-inner" textColor={""} backgroundColor={"#fff"} breakpoint={0} minWidth={""} maxWidth={""}>
                     <CDBSidebarContent className="sidebar-content">
                         <CDBSidebarMenu>
+                            <NavLink to={'/'} className="i-heading-ilm">
+                                <CDBSidebarMenuItem
+                                    className="NavLink-text-ilm"
+                                    icon="shield-alt"
+                                >
+                                    {sidebarUris &&
+                                        Array.isArray(sidebarUris) ?
+                                        sidebarUris.find((url) => url.path === pathname || pathname.includes(url.path))?.name
+                                        : pathname.split('/')[1]
+                                    }
+                                </CDBSidebarMenuItem>
+                                <hr />
+                            </NavLink>
                             {sidebarUris && Array.isArray(sidebarUris) && sidebarUris.map((url, index) => {
                                 return (
                                     <NavLink key={index} to={url.path}>
