@@ -458,3 +458,48 @@
     padding-left: 8px;
     font-weight: 500;
 }
+
+/* hovers of sidebar */
+.i-heading .djSlkg:hover {
+    background: white !important;
+}
+.i-heading .djSlkg:hover i {
+    color: #2181fa;
+}
+.i-heading .djSlkg:hover span {
+    color: #8c96a0 !important;
+}
+.gmeTLe:hover {
+    background-color: #edf4ff;
+}
+.gmeTLe:hover .NavLink-text {
+    color: #2181fa;
+}
+.gmeTLe:hover i {
+    color: #2181fa;
+}
+.gmeTLe:hover .item-content {
+    color: #2181fa;
+}
+.gmeTLe.active {
+    background-color: #edf4ff;
+}
+.gmeTLe.active .NavLink-text {
+    color: #2181fa;
+}
+.gmeTLe.active i {
+    color: #2181fa;
+}
+.gmeTLe.active .item-content {
+    color: #2181fa;
+}
+.gmeTLe {
+    width: 100%;
+    height: 55px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all ease-in-out 0.2s;
+    display: flex;
+    align-items: center;
+    color: #343a40;
+}
