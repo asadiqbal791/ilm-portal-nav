@@ -65,16 +65,16 @@ export const IlmPortalNavbar = ({
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-4 col-5 align-self-center d-flex gap-3">
-              <a href="#" id='hamburger' onClick={addActiveClass}><RiMenu2Fill /></a>
+            <a href="#" id='hamburger' onClick={addActiveClass}><RiMenu2Fill /></a>
               <div className="logo-wrapper" >
                 <a href="#">
-                  <img src={require("./logo.png")} alt="logo-icon" />
+                  <img src={"./logo.png"} alt="logo-icon" />
                   <strong>ILMIYA</strong>
                 </a>
                 {menuState ? <div className="dropdown-div">
                   <div className="title">
                     <a href="#">
-                      <img src={require("./logo.png")} alt="logo-icon" />
+                      <img src={"./logo.png"} alt="logo-icon" />
                       <strong>ILMIYA</strong>
                     </a>
                   </div>
@@ -96,7 +96,7 @@ export const IlmPortalNavbar = ({
             <div className="col-md-8 col-7 align-self-center">
               <div className="header-menu">
                 <ul className="icons-wrapper">
-                  <li><a href="#"><img src={require("./headerDotedIcon.svg")} alt="headerDotedIcon" /></a>
+                  <li><a href="#"><img src={"./headerDotedIcon.svg"} alt="headerDotedIcon" /></a>
                     <div className="dropdown-div">
                       <ul className="page-list">
                         <li onClick={() => onPortalChange && typeof onPortalChange === "function" && onPortalChange('People')}><a href="#">
@@ -119,15 +119,15 @@ export const IlmPortalNavbar = ({
                   </li>
                   <li>
                     <ul className="icon-list">
-                      <li><a href="#"><img src={require("./supportCircleIcon.svg")} alt="supportCircleIcon" /></a>
+                      <li><a href="#"><img src={"./supportCircleIcon.svg"} alt="supportCircleIcon" /></a>
 
                       </li>
-                      <li><a href="#"><img src={require("./inboxIcon.svg")} alt="inboxIcon" /></a></li>
-                      <li className="avatar"><a href="#"><img src={require("./avatar.png")} alt="avatar"
+                      <li><a href="#"><img src={"./inboxIcon.svg"} alt="inboxIcon" /></a></li>
+                      <li className="avatar"><a href="#"><img src={"./avatar.png"} alt="avatar"
                         className="avatar" /></a>
                         <div className="dropdown-div profile">
                           <div className="img-wrapper">
-                            <img src={require("./avatar.png")} alt="avatar" />
+                            <img src={"./avatar.png"} alt="avatar" />
                           </div>
                           <div className="content-wrapper">
                             <p className="name">
@@ -158,7 +158,7 @@ export const IlmPortalNavbar = ({
         <div id="side-bar-wrapper" className={`${sidebarClass} ${sidebarClassMobile}`}>
           <div className="side-bar-title-wrapper">
             <a href="#">
-              <img src={require("./analyticsIcon.png")} alt="analyticsIcon" />
+              <img src={"./analyticsIcon.png"} alt="analyticsIcon" />
               <strong>Analytics</strong>
             </a>
           </div>
@@ -180,7 +180,7 @@ export const IlmPortalNavbar = ({
               className="sidebar-toggle-close"
               onClick={toggleHideClass}
             >
-              <img src={require("./sideBarColorIcon.svg")} alt="sideBarColorIcon" />
+              <img src={"./sideBarColorIcon.svg"} alt="sideBarColorIcon" />
             </a>
           </div>
         </div>

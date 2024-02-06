@@ -1,10 +1,10 @@
-import { MouseEventHandler } from "react";
+import React, { MouseEventHandler } from "react";
 interface SidebarUri {
     path: string;
-    icon?: string;
+    icon: React.ReactNode;
     name: string;
 }
-export declare const IlmPortalNavbar: ({ onPortalChange, auth, logout, toggleMenu, menuState, orgs, onChangeOrgName, onChangeOrg, onSwitchOrg, sidebarUris, switchPopup, }: {
+export declare const IlmPortalNavbar: ({ onPortalChange, auth, logout, menuState, onSwitchOrg, sidebarUris, switchPopup, children }: {
     auth?: {
         currentUser: {
             photoURL: string;
@@ -14,20 +14,10 @@ export declare const IlmPortalNavbar: ({ onPortalChange, auth, logout, toggleMen
     };
     logout?: MouseEventHandler<HTMLElement>;
     menuState: Boolean;
-    toggleMenu?: () => void;
     onPortalChange?: (portal: string) => void;
-    orgs?: Array<{
-        name: string;
-        displayName: string;
-        createdAt: string;
-        branding: {
-            logo_url: string;
-        };
-    }> | null;
-    onChangeOrgName?: (org: string) => void;
-    onChangeOrg?: (org: Object) => void;
     onSwitchOrg?: () => void;
     sidebarUris?: Array<SidebarUri>;
     switchPopup?: boolean;
+    children?: React.ReactNode;
 }) => JSX.Element;
 export {};
