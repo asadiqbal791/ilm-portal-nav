@@ -19,6 +19,7 @@ declare module "ilm-portal-nav" {
     onChangeOrg?: (org: Object) => void;
     onSwitchOrg?: () => void;
     sidebarUris?: Array<SidebarUri>;
+    switchPopup?: boolean;
   }
 
   export const IlmPortalNavbar: React.FC<IlmPortalNavbarProps>;

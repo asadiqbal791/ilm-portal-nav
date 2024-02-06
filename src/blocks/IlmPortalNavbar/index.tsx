@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useState } from "react";
+import React, { MouseEventHandler, useEffect, useState } from "react";
 import { Dropdown, Modal, Form } from "react-bootstrap";
 import { MdOutlineMenu, MdOutlineMenuOpen } from "react-icons/md";
 import { NavLink, useLocation } from "react-router-dom";
@@ -27,6 +27,7 @@ export const IlmPortalNavbar = ({
     onChangeOrg = () => { },
     onSwitchOrg = () => { },
     sidebarUris = [],
+    switchPopup = false,
 }: {
     auth?: { currentUser: { photoURL: string; displayName: string; email: string } };
     logout?: MouseEventHandler<HTMLElement>;
@@ -38,6 +39,7 @@ export const IlmPortalNavbar = ({
     onChangeOrg?: (org: Object) => void;
     onSwitchOrg?: () => void;
     sidebarUris?: Array<SidebarUri>;
+    switchPopup?: boolean;
 
 }) => {
     const [org, setOrg] = useState('');
@@ -47,18 +49,16 @@ export const IlmPortalNavbar = ({
     const handleCloseorg = () => setShoworg(false);
     const space = localStorage.getItem('space') ? JSON.parse(localStorage.getItem('space')) : { name: 'ilmiya', displayName: "ilmiya" };
     const { pathname } = useLocation();
+    useEffect(() => {
+        const child = document.getElementById('sidebar-child');
+        if (child) {
+            child.style.marginLeft = '90px';
+        }
+
+    }, []);
     return (
         <div className='i-header'>
             <div className='i-brand'>
-                {menuState == false ? (
-                    <div className="menu-icon" onClick={() => { toggleMenu(); setSidebarState(!sidebarState) }}>
-                        <MdOutlineMenu />
-                    </div>
-                ) : (
-                    <div className="menu-icon" onClick={toggleMenu}>
-                        <MdOutlineMenuOpen />
-                    </div>
-                )}
                 <Dropdown>
                     <Dropdown.Toggle variant='link' id="dropdown-basic">
                         <div className='i-org'>
@@ -67,7 +67,7 @@ export const IlmPortalNavbar = ({
                         </div>
                     </Dropdown.Toggle>
 
-                    <Dropdown.Menu className='org-dropdown'>
+                    {switchPopup ? <Dropdown.Menu className='org-dropdown'>
                         <div className='org-head'>
                             <img src={require('./logo.png')} />
                             <p>{space?.displayName}</p>
@@ -120,6 +120,9 @@ export const IlmPortalNavbar = ({
                             </div>
                         </div>
                     </Dropdown.Menu>
+                        :
+                        ""
+                    }
                 </Dropdown>
             </div>
             <div className='i-actions'>
@@ -299,20 +302,16 @@ export const IlmPortalNavbar = ({
                 </Modal.Body>
             </Modal>
             {/* sidebar */}
-            <div className={`cdb-side-bar`}>
+            <div className={`cdb-side-bar-manu`}>
                 <CDBSidebar toggled={sidebarState} className="side-bar-inner" textColor={""} backgroundColor={"#fff"} breakpoint={0} minWidth={""} maxWidth={""}>
                     <CDBSidebarContent className="sidebar-content">
                         <CDBSidebarMenu>
                             <NavLink to={'/'} className="i-heading-ilm">
                                 <CDBSidebarMenuItem
-                                    className="NavLink-text-ilm"
+                                    className="NavLink-text-ilm text-capitalize"
                                     icon="shield-alt"
                                 >
-                                    {sidebarUris &&
-                                        Array.isArray(sidebarUris) ?
-                                        sidebarUris.find((url) => url.path === pathname || pathname.includes(url.path))?.name
-                                        : pathname.split('/')[1]
-                                    }
+                                    {document.location.pathname.split('/')[1]}
                                 </CDBSidebarMenuItem>
                                 <hr />
                             </NavLink>
@@ -320,6 +319,7 @@ export const IlmPortalNavbar = ({
                                 return (
                                     <NavLink key={index} to={url.path}>
                                         <CDBSidebarMenuItem
+                                            iconClassName="text-dark"
                                             className="NavLink-text"
                                             icon={url.icon}
                                         >
@@ -331,7 +331,15 @@ export const IlmPortalNavbar = ({
                         </CDBSidebarMenu>
                     </CDBSidebarContent>
                     <CDBSidebarHeader className='side-nav-open' prefix={
-                        <div className='open-nav'>
+                        <div onClick={() => {
+                            setSidebarState(!sidebarState)
+                            const child = document.getElementById('sidebar-child');
+                            if (child) {
+                                child.style.marginLeft = sidebarState ? '167px' : '90px';
+                                child.style.width = sidebarState ? 'calc(100% - 167px)' : 'calc(100% - 90px)';
+
+                            }
+                        }} className='open-nav'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="9" height="8" viewBox="0 0 9 8" fill="none">
                                 <path d="M8.29089 4.22241L4.57613 0.489075L3.70317 1.36641L6.53877 4.22241L3.70317 7.07841L4.57613 7.95574L8.29089 4.22241Z" fill="white" />
                                 <rect x="0.765625" y="7.95575" width="7.46667" height="1.23488" transform="rotate(-90 0.765625 7.95575)" fill="white" />

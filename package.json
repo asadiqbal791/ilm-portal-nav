@@ -1,6 +1,6 @@
 {
   "name": "ilm-portal-nav1",
-  "version": "1.0.32",
+  "version": "1.0.42",
   "description": "building blocks",
   "main": "dist/index.js",
   "module": "dist/index.es.js",

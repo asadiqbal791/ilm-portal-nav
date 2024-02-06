@@ -4,7 +4,7 @@ interface SidebarUri {
     icon?: string;
     name: string;
 }
-export declare const IlmPortalNavbar: ({ onPortalChange, auth, logout, toggleMenu, menuState, orgs, onChangeOrgName, onChangeOrg, onSwitchOrg, sidebarUris, }: {
+export declare const IlmPortalNavbar: ({ onPortalChange, auth, logout, toggleMenu, menuState, orgs, onChangeOrgName, onChangeOrg, onSwitchOrg, sidebarUris, switchPopup, }: {
     auth?: {
         currentUser: {
             photoURL: string;
@@ -28,5 +28,6 @@ export declare const IlmPortalNavbar: ({ onPortalChange, auth, logout, toggleMen
     onChangeOrg?: (org: Object) => void;
     onSwitchOrg?: () => void;
     sidebarUris?: Array<SidebarUri>;
+    switchPopup?: boolean;
 }) => JSX.Element;
 export {};
