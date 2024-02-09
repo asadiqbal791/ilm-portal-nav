@@ -96,7 +96,7 @@ export const IlmPortalNavbar = ({
             <div className="col-md-8 col-7 align-self-center">
               <div className="header-menu">
                 <ul className="icons-wrapper">
-                  <li><a href="#"><img src={require("./headerDotedIcon.svg")} alt="headerDotedIcon" /></a>
+                  <li><a href="#"><img src={require("./headerDotedIcon.png")} alt="headerDotedIcon" /></a>
                     <div className="dropdown-div">
                       <ul className="page-list">
                         <li onClick={() => onPortalChange && typeof onPortalChange === "function" && onPortalChange('People')}><a href="#">
@@ -119,10 +119,10 @@ export const IlmPortalNavbar = ({
                   </li>
                   <li>
                     <ul className="icon-list">
-                      <li><a href="#"><img src={require("./supportCircleIcon.svg")} alt="supportCircleIcon" /></a>
+                      <li><a href="#"><img src={require("./supportCircleIcon.png")} alt="supportCircleIcon" /></a>
 
                       </li>
-                      <li><a href="#"><img src={require("./inboxIcon.svg")} alt="inboxIcon" /></a></li>
+                      <li><a href="#"><img src={require("./inboxIcon.png")} alt="inboxIcon" /></a></li>
                       <li className="avatar"><a href="#"><img src={require("./avatar.png")} alt="avatar"
                         className="avatar" /></a>
                         <div className="dropdown-div profile">
@@ -180,7 +180,7 @@ export const IlmPortalNavbar = ({
               className="sidebar-toggle-close"
               onClick={toggleHideClass}
             >
-              <img src={require("./sideBarColorIcon.svg")} alt="sideBarColorIcon" />
+              <img src={require("./sideBarColorIcon.png")} alt="sideBarColorIcon" />
             </a>
           </div>
         </div>
