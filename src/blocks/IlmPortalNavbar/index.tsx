@@ -1,5 +1,5 @@
 import React, { MouseEventHandler, useState } from "react";
-
+import { Link } from 'react-router-dom'
 import { RiMenu2Fill } from "react-icons/ri";
 import { RiBarChartBoxLine } from "react-icons/ri";
 import { FaCircle } from "react-icons/fa";
@@ -15,6 +15,9 @@ import { CiCirclePlus } from "react-icons/ci";
 import { BsArrowClockwise } from "react-icons/bs";
 import { TbUserPlus } from "react-icons/tb";
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { TbGridDots } from "react-icons/tb";
+import { RiInboxLine } from "react-icons/ri";
+import { FaRegLifeRing } from "react-icons/fa";
 
 
 interface SidebarUri {
@@ -96,7 +99,7 @@ export const IlmPortalNavbar = ({
             <div className="col-md-8 col-7 align-self-center">
               <div className="header-menu">
                 <ul className="icons-wrapper">
-                  <li><a href="#"><img src={require("./headerDotedIcon.png")} alt="headerDotedIcon" /></a>
+                  <li><a href="#"><TbGridDots /></a>
                     <div className="dropdown-div">
                       <ul className="page-list">
                         <li onClick={() => onPortalChange && typeof onPortalChange === "function" && onPortalChange('People')}><a href="#">
@@ -119,10 +122,10 @@ export const IlmPortalNavbar = ({
                   </li>
                   <li>
                     <ul className="icon-list">
-                      <li><a href="#"><img src={require("./supportCircleIcon.png")} alt="supportCircleIcon" /></a>
+                      <li><a href="#"><FaRegLifeRing /></a>
 
                       </li>
-                      <li><a href="#"><img src={require("./inboxIcon.png")} alt="inboxIcon" /></a></li>
+                      <li><a href="#"><RiInboxLine /></a></li>
                       <li className="avatar"><a href="#"><img src={require("./avatar.png")} alt="avatar"
                         className="avatar" /></a>
                         <div className="dropdown-div profile">
@@ -157,19 +160,19 @@ export const IlmPortalNavbar = ({
       <div className="main-dashboard-wrapper">
         <div id="side-bar-wrapper" className={`${sidebarClass} ${sidebarClassMobile}`}>
           <div className="side-bar-title-wrapper">
-            <a href="#">
+            <Link to="/">
               <img src={require("./analyticsIcon.png")} alt="analyticsIcon" />
-              <strong>Analytics</strong>
-            </a>
+              <strong> {document.location.pathname.split('/')[1]}</strong>
+            </Link>
           </div>
           <div className="sidebar-menu-wrapper">
             <ul className="sidebar-menu">
               {sidebarUris.map((uri, index) => (
                 <li key={index}>
-                  <a href={uri.path}>
+                  <Link to={uri.path}>
                     {uri.icon}
                     <span className="span">{uri.name}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
